@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kurv - Duck Deluxe</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+<img src="Assets/Logo.png" alt="Duck Deluxe Logo" class="logo">
+<h1>Duck Deluxe</h1>
+<p class="subtitle">Copenhagen</p>
+</header>
+<main>
+  <h2>Din kurv</h2>
+  <div id="cart-container" class="cart-container">
+    <!-- Cart items rendered here -->
+  </div>
+  <div id="cart-actions" style="max-width:1100px;margin:20px auto;display:flex;justify-content:space-between;align-items:center;">
+    <div>
+      <button id="clear-cart" class="primary">Ryd kurv</button>
+    </div>
+    <div>
+      <strong>Total: </strong> <span id="cart-total">0 kr</span>
+      <button id="checkout" class="primary" style="margin-left:12px;">Gå til betaling</button>
+    </div>
+  </div>
+</main>
+<footer>
+© 2026 • Duck Deluxe
+</footer>
+<script src="js/script.js"></script>
+<script>
+(function renderCart(){
+  const container = document.getElementById('cart-container');
+  const totalEl = document.getElementById('cart-total');
+  function draw(){
+    const cart = (window.getCart && window.getCart()) || [];
+    container.innerHTML = '';
+    if (cart.length === 0) {
+      container.innerHTML = '<p style="text-align:center;">Din kurv er tom.</p>';
+      totalEl.textContent = '0 kr';
+      return;
+    } 
+
+    
+    let total = 0;
+    cart.forEach((p, idx) => {
+      const row = document.createElement('div');
+      row.className = 'cart-row';
+      row.style.display = 'flex';
+      row.style.gap = '16px';
+      row.style.alignItems = 'center';
+      row.style.padding = '12px 0';
+      row.style.borderBottom = '1px solid #eee';
+
+      row.innerHTML = `
+        <img src="${p.image}" style="width:110px;height:110px;object-fit:cover;border-radius:6px;" />
+        <div style="flex:1">
+          <div style="font-weight:600">${p.title}</div>
+          <div style="color:#666">Price: ${p.price} kr</div>
+        </div>
+        <div>
+          <input type="number" min="1" value="${p.quantity||1}" data-idx="${idx}" class="cart-qty" style="width:70px;padding:6px;border:1px solid #ddd;border-radius:4px;" />
+        </div>
+        <div style="width:110px;text-align:right">${(p.price * (p.quantity||1))} kr</div>
+        <div><button data-idx="${idx}" class="remove-btn" style="background:#fff;border:1px solid #ddd;padding:6px 10px;border-radius:4px;">Fjern</button></div>
+      `;
+      container.appendChild(row);
+      total += p.price * (p.quantity||1);
+    });
+    totalEl.textContent = total + ' kr';
+
+    // attach handlers
+    container.querySelectorAll('.cart-qty').forEach(input => {
+      input.addEventListener('change', function(){
+        const i = parseInt(this.getAttribute('data-idx'),10);
+        const v = Math.max(1, parseInt(this.value,10)||1);
+        const cart = window.getCart();
+        cart[i].quantity = v;
+        window.saveCart(cart);
+        draw();
+        if (window.updateCartIndicator) window.updateCartIndicator();
+      });
+    });
+    container.querySelectorAll('.remove-btn').forEach(btn => {
+      btn.addEventListener('click', function(){
+        const i = parseInt(this.getAttribute('data-idx'),10);
+        const cart = window.getCart();
+        cart.splice(i,1);
+        window.saveCart(cart);
+        draw();
+        if (window.updateCartIndicator) window.updateCartIndicator();
+      });
+    });
+  }
+
+  document.getElementById('clear-cart').addEventListener('click', function(){
+    if (confirm('Er du sikker på du vil rydde kurven?')){
+      window.saveCart([]);
+      draw();
+      if (window.updateCartIndicator) window.updateCartIndicator();
+    }
+  });
+
+  document.getElementById('checkout').addEventListener('click', function(){
+    alert('Checkout demo - implementer betalingsgateway senere.');
+  });
+nav>
+<ul>
+<li><a href="forside.html">Forside</a></li>
+<li class="dropdown">
+<span>Produkter</span>
+<ul class="submenu">
+<li><a href="alle-produkter.html">Se alle produkter</a></li>
+<li><a href="bagcharms.html">Bagcharms</a></li>
+<li><a href="limited-edition.html">Limited Edition</a></li>
+<li><a href="smykker.html">Smykker</a></li>
+<li><a href="design-selv.html">Design Selv</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<span>Info</span>
+<ul class="submenu">
+<li><a href="historie.html">Historie</a></li>
+<li><a href="materialer.html">Materialer</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<span>Kundeservice</span>
+<ul class="submenu">
+<li><a href="kontakt.html">Kontakt</a></li>
+<li><a href="sporgsmal-svar.html">Spørgsmål og Svar</a></li>
+<li><a href="returnering.html">Returnering</a></li>
+</ul>
+</li>
+</ul>

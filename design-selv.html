@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Selv - Duck Deluxe</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+<img src="Assets/Logo.png" alt="Duck Deluxe Logo" class="logo">
+<h1>Duck Deluxe</h1>
+<p class="subtitle">Copenhagen</p>
+</header>
+<nav>
+<ul>
+<li><a href="forside.html">Forside</a></li>
+<li class="dropdown">
+<span>Produkter</span>
+<ul class="submenu">
+<li><a href="alle-produkter.html">Se alle produkter</a></li>
+<li><a href="bagcharms.html">Bagcharms</a></li>
+<li><a href="limited-edition.html">Limited Edition</a></li>
+<li><a href="smykker.html">Smykker</a></li>
+<li><a href="design-selv.html">Design Selv</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<span>Info</span>
+<ul class="submenu">
+<li><a href="historie.html">Historie</a></li>
+<li><a href="materialer.html">Materialer</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<span>Kundeservice</span>
+<ul class="submenu">
+<li><a href="kontakt.html">Kontakt</a></li>
+<li><a href="sporgsmal-svar.html">Spørgsmål og Svar</a></li>
+<li><a href="returnering.html">Returnering</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<main class="atelier">
+<!-- Preview -->
+<section class="preview">
+<img id="duckImage" src="Assets/Logo.png" alt="Din and" class="duck-preview">
+<p id="price" class="design-price">Pris: 499 kr.</p>
+</section>
+
+<!-- Controls -->
+<section class="controls">
+
+<h2>1. Materiale</h2>
+<select id="material">
+<option value="gold">Guld</option>
+<option value="silver">Sølv</option>
+<option value="bronze">Bronze</option>
+<option value="rosegold">Rosaguld</option>
+</select>
+
+<h2>2. Ædelsten</h2>
+<select id="gem">
+<option value="none">Ingen</option>
+<option value="diamond">Diamant</option>
+<option value="sapphire">Safir</option>
+<option value="emerald">Smaragd</option>
+</select>
+
+<h2>3. Accessories</h2>
+<label><input type="checkbox" value="hat"> Hat</label>
+<label><input type="checkbox" value="bow"> Sløjfe</label>
+<label><input type="checkbox" value="crown"> Krone</label>
+
+<h2>4. Indgravering (+99 kr.)</h2>
+<input type="text" id="engraving" placeholder="Navn eller tekst">
+
+</section>
+</main>
+<footer>
+© 2026 • Duck Deluxe
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

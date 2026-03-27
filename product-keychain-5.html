@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keychain 5 - Duck Deluxe</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+<img src="Assets/Logo.png" alt="Duck Deluxe Logo" class="logo">
+<h1>Duck Deluxe</h1>
+<p class="subtitle">Copenhagen</p>
+</header>
+<nav>
+<ul>
+<li><a href="forside.html">Forside</a></li>
+<li class="dropdown">
+<span>Produkter</span>
+<ul class="submenu">
+<li><a href="alle-produkter.html">Se alle produkter</a></li>
+<li><a href="bagcharms.html">Bagcharms</a></li>
+<li><a href="limited-edition.html">Limited Edition</a></li>
+<li><a href="smykker.html">Smykker</a></li>
+<li><a href="design-selv.html">Design Selv</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<span>Info</span>
+<ul class="submenu">
+<li><a href="historie.html">Historie</a></li>
+<li><a href="materialer.html">Materialer</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<span>Kundeservice</span>
+<ul class="submenu">
+<li><a href="kontakt.html">Kontakt</a></li>
+<li><a href="sporgsmal-svar.html">Spørgsmål og Svar</a></li>
+<li><a href="returnering.html">Returnering</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<main>
+<div class="product-detail">
+  <div class="product-image-placeholder" style="width: 360px; height: 420px;"></div>
+  <div class="detail-info">
+    <h3 class="detail-title">Keychain Produkt 5</h3>
+    <p class="detail-price">Pris: 100 kr</p>
+    <button id="add-to-cart" class="primary">Tilføj til kurv</button>
+    
+  </div>
+</div>
+</main>
+<footer>
+© 2026 • Duck Deluxe
+</footer>
+<script src="js/script.js"></script>
+<script>
+document.getElementById('add-to-cart').addEventListener('click', function(){
+  const product = { id: 'keychain-5', title: 'Keychain Produkt 5', price: 100, image: 'Assets/placeholder.png', quantity: 1 };
+  if (window.addToCart) window.addToCart(product);
+});
+</script>
+</body>
+</html>

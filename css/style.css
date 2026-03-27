@@ -1,0 +1,698 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+font-family: 'IBM Plex Serif', serif;
+background: #ffffff; /* White background like Hermes */
+color: #333333; /* Dark grey text */
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+animation: fadePage 0.6s ease;
+cursor: url('../Assets/1.png'), auto;
+  padding-top: 160px; /* reserve space for fixed header + nav */
+}
+
+@keyframes fadePage {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+header {
+background: #1d1c1c;
+color: #342f2f;
+padding: 18px 20px;
+text-align: center;
+box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+display: flex;
+flex-direction: column;
+align-items: center;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+width: 100%;
+box-sizing: border-box;
+}
+
+/* Header cart indicator */
+.header-cart {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1100;
+}
+
+.header-cart button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.1em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-bubble {
+  background: #d4af37;
+  color: #1d1c1c;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-weight: 700;
+  font-size: 0.85em;
+}
+
+.logo {
+width: 80px; /* Adjust size as needed */
+height: auto;
+margin-bottom: 8px;
+}
+
+header h1 {
+color: #d4af37; /* Adjusted gold to antique gold */
+font-family: 'Sikta text', serif; /* More luxurious font */
+font-size: 2em; /* Reduced from 2.5em */
+margin: 0;
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 3px; /* Increased for luxury feel */
+}
+
+.subtitle {
+color: #d4af37; /* Same gold */
+font-family: 'Georgia', serif;
+font-size: 1em; /* Reduced */
+margin: 3px 0 0 0;
+font-weight: normal;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+nav {
+background: #f5f5f5; /* Light gray background */
+display: flex;
+justify-content: center;
+padding: 14px 0;
+box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+position: fixed;
+top: 180px;
+left: 0;
+right: 0;
+z-index: 999;
+width: 100%;
+}
+
+nav ul {
+list-style: none;
+margin: 0;
+padding: 0;
+display: flex;
+gap: 20px;
+}
+
+nav li {
+position: relative;
+}
+
+nav a {
+color: #333333; /* Dark grey text */
+text-decoration: none;
+font-size: 17px;
+font-weight: bold;
+padding: 10px 18px;
+border-radius: 8px;
+transition: 0.25s ease;
+display: block;
+}
+
+nav li.dropdown span {
+color: #333333; /* Dark grey text */
+text-decoration: none;
+font-size: 17px;
+font-weight: bold;
+padding: 10px 18px;
+border-radius: 8px;
+transition: 0.25s ease;
+display: block;
+cursor: default;
+}
+
+nav a:hover, nav li.dropdown span:hover {
+background: rgba(0,0,0,0.1);
+transform: translateY(-2px);
+}
+
+.dropdown:hover .submenu {
+display: block;
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
+}
+
+.submenu {
+display: none;
+position: absolute;
+top: 100%;
+left: 0;
+background: #ffffff; /* White background */
+min-width: 200px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+border-radius: 8px;
+opacity: 0;
+visibility: hidden;
+transform: translateY(-10px);
+transition: all 0.3s ease;
+z-index: 1000;
+}
+
+.submenu li {
+margin: 0;
+}
+
+.submenu a {
+color: #333333; /* Dark grey text */
+padding: 12px 18px;
+font-size: 16px;
+font-weight: normal;
+border-radius: 0;
+}
+
+.submenu a:hover {
+background: rgba(0,0,0,0.05); /* Light gray hover */
+transform: none;
+}
+
+/* Hero sektion */
+.hero {
+background: url('../Assets/Taske.png') center/cover no-repeat;
+padding: 200px 20px; /* Increased from 120px */
+text-align: center;
+color: #f5f5dc;
+border-radius: 0 0 20px 20px;
+position: relative;
+}
+
+.hero::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(52,47,47,0.5);
+z-index: 1;
+}
+
+.hero h2 {
+font-size: 40px;
+text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+position: relative;
+z-index: 2;
+}
+
+.hero p {
+font-size: 20px;
+margin-top: 10px;
+text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+position: relative;
+z-index: 2;
+}
+
+.hero-btn {
+display: inline-block;
+margin-top: 20px;
+padding: 12px 25px;
+background: #ffffff;
+color: #342f2f;
+font-weight: bold;
+border-radius: 8px;
+text-decoration: none;
+transition: 0.3s;
+position: relative;
+z-index: 2;
+}
+
+.product-title {
+text-align: center;
+padding: 40px 20px;
+background: #ffffff;
+}
+
+.product-title h2 {
+color: #d4af37;
+font-family: 'Georgia', serif;
+font-size: 2.5em;
+margin: 0 0 20px 0;
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+.product-title p {
+color: #888888;
+font-family: 'IBM Plex Serif', serif;
+font-size: 1.1em;
+line-height: 1.6;
+margin: 10px 0;
+max-width: 600px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.products-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 30px;
+max-width: 1000px;
+margin:  0 auto;
+justify-items: center;
+}
+
+
+
+
+.product-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.product-image-placeholder {
+width: 360px;
+height: 420px;
+background: #f0f0f0;
+border: 2px dashed #ccc;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 14px;
+color: #999;
+border-radius: 4px;
+}
+
+.product-card img {
+width: 360px;
+height: 420px;
+object-fit: cover;
+border-radius: 4px;
+margin: 0 auto 20px;
+}
+
+/* Product detail page styles (inspired by screenshot) */
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.detail-image {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+}
+
+.detail-info {
+  padding: 20px;
+}
+
+.detail-price {
+  font-family: 'IBM Plex Serif', serif;
+  color: #333333; /* dark gray price color */
+  font-size: 1.6em;
+  margin-bottom: 12px;
+}
+
+.detail-info .detail-title {
+  font-size: 1.8em;
+  color: #222222; /* dark title */
+  margin: 0 0 12px 0;
+  font-weight: 700;
+}
+
+.primary {
+  background: #1d1c1c;
+  color: #d4af37;
+  border: none;
+  padding: 12px 18px;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.primary:hover { opacity: 0.9; }
+
+.product-card h3 {
+color: #333333;
+font-family: 'IBM Plex Serif', serif;
+font-size: 1.15em;
+margin: 10px 0;
+}
+
+/* Remove default link styling inside product cards (look like plain text) */
+.product-card a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.product-card a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Main page title styling */
+main h2 {
+color: #333333;
+font-family: 'Georgia', serif;
+font-size: 2em;
+text-align: center;
+margin-bottom: 30px;
+}
+
+main {
+margin-top: 0;
+}
+
+.product-card p {
+color: #333333;
+font-size: 0.9em;
+line-height: 1.4;
+}
+
+
+
+footer {
+background: #ffffff;
+color: #333333; /* Dark grey text */
+text-align: center;
+padding: 18px;
+border-top: 2px solid #d4af37; /* Gold border */
+}
+
+/* Cookie boks */
+#cookie-box {
+position: fixed;
+bottom: 20px;
+right: 20px;
+background: #f5f5dc;
+padding: 20px;
+width: 300px;
+border-radius: 12px;
+box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+display: none;
+animation: fadeIn 0.4s ease;
+}
+
+#cookie-box button {
+background: #ffffff;
+border: none;
+color: #342f2f;
+padding: 10px 15px;
+margin-top: 10px;
+cursor: pointer;
+border-radius: 5px;
+font-size: 14px;
+font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
+}
+
+#cookie-box button:hover {
+background: #f5f5f5;
+}
+
+#accept-cookies {
+background: #ffffff;
+}
+
+#decline-cookies {
+background: #ccc;
+color: #333;
+}
+
+#decline-cookies:hover {
+background: #aaa;
+}
+
+/* Carousel Section */
+.carousel-section {
+padding: 40px 20px;
+background: #f9f9f9;
+position: relative;
+}
+.carousel-container {
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+background: #ffffff;
+border-radius: 8px;
+padding: 20px 0;
+position: relative;
+}
+
+.carousel-scroll {
+display: flex;
+gap: 20px;
+overflow-x: auto;
+scroll-behavior: smooth;
+padding: 0 20px;
+scrollbar-width: thin;
+scrollbar-color: #d4af37 #f0f0f0;
+flex: 1;
+max-width: 1200px;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 20;
+}
+
+.carousel-arrow {
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.06);
+  color: #1d1c1c;
+  font-size: 1.6em;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: color 0.2s, transform 0.14s, background 0.14s;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.carousel-arrow:hover {
+  color: #d4af37;
+  background: rgba(255,255,255,1);
+  transform: scale(1.05);
+}
+
+.carousel-scroll::-webkit-scrollbar {
+height: 8px;
+}
+
+.carousel-scroll::-webkit-scrollbar-track {
+background: #f0f0f0;
+border-radius: 10px;
+}
+
+.carousel-scroll::-webkit-scrollbar-thumb {
+background: #d4af37;
+border-radius: 10px;
+}
+
+.carousel-scroll::-webkit-scrollbar-thumb:hover {
+background: #b8941f;
+}
+
+.carousel-item {
+flex: 0 0 280px;
+text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+}
+
+.carousel-item img {
+width: 100%;
+height: 280px;
+object-fit: contain;
+border-radius: 8px;
+transition: transform 0.3s;
+display: block;
+}
+
+.carousel-item img:hover {
+transform: scale(1.05);
+}
+
+.carousel-item p {
+display: none;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+/* Design Selv - Atelier Customizer */
+.atelier {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 40px;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.preview {
+  text-align: center;
+  padding: 40px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.duck-preview {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.design-price {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 1.3em;
+  color: #d4af37;
+  font-weight: 600;
+}
+
+.controls {
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.controls h2 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 1em;
+  color: #1d1c1c;
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 600;
+}
+
+.controls h2:first-child {
+  margin-top: 0;
+}
+
+select, input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+select:focus, input[type="text"]:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+}
+
+.controls label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.controls input[type="checkbox"] {
+  margin-right: 8px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 768px) {
+  .atelier {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .preview, .controls {
+    padding: 20px;
+  }
+}
+
+/* Info page styling */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+main p {
+  color: #888888;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+main h2 {
+  color: #333333;
+  margin-bottom: 40px;
+  margin-top: 80px;
+  font-size: 2em;
+}
+
+main ul {
+  color: #888888;
+  line-height: 1.8;
+}
+
+/* FAQ section styling */
+.faq-section {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.faq-section h3 {
+  color: #333333;
+  margin-bottom: 15px;
+  font-size: 1.1em;
+}
+
+.faq-section p {
+  color: #888888;
+  line-height: 1.8;
+}
+
+.faq-section:last-child {
+  border-bottom: none;
+}
